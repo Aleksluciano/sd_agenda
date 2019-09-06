@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "553425052142",
+    "firebase_url": "https://sodivaestoque.firebaseio.com",
+    "project_id": "sodivaestoque",
+    "storage_bucket": "sodivaestoque.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553425052142:android:fb996f4d45b2c7d0",
+        "android_client_info": {
+          "package_name": "com.appalexavelar.sd_agenda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553425052142-1po47p6p7n5g9esuesgbkkem6vrq54rs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdz5rzy85UfkZfEkdd191wfc5_hnG1zAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553425052142-1po47p6p7n5g9esuesgbkkem6vrq54rs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
