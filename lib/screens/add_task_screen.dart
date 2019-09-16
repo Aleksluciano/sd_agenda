@@ -7,13 +7,11 @@ import 'package:sd_agenda/widgets/period_field.dart';
 import 'package:sd_agenda/widgets/responsible_field.dart';
 
 class AddTaskScreen extends StatelessWidget {
-
-       
   @override
   Widget build(BuildContext context) {
+    var dataProvider = Provider.of<TaskData>(context);
 
     return Container(
-
       color: Color(0xff5c042c),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -29,13 +27,12 @@ class AddTaskScreen extends StatelessWidget {
               ),
             ),
             child: Column(
-             mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 ResponsibleField(),
                 ActivitieField(),
                 PeriodField(),
                 FlatButton(
-                  
                   child: Text(
                     'Adicionar',
                     style: TextStyle(
@@ -44,17 +41,12 @@ class AddTaskScreen extends StatelessWidget {
                   ),
                   color: Colors.pink[700],
                   onPressed: () {
-                  final newTaskTitle = Provider.of<TaskData>(context).taskTitle;
-                  final newDateTime  = Provider.of<TaskData>(context).dateTime;
-                    if(newDateTime != null && newTaskTitle != null){
-
-                  
-                    Provider.of<TaskData>(context).addTask();
-                    Provider.of<TaskData>(context).selectedDate = newDateTime;                    
-                    Navigator.pop(context);
-                    
-                    
-             
+                    final newTaskTitle = dataProvider.taskTitle;
+                    final newDateTime = dataProvider.dateTime;
+                    if (newDateTime != null && newTaskTitle != null) {
+                      dataProvider.addTask();
+                      dataProvider.selectedDate = newDateTime;
+                      Navigator.pop(context);
                     }
                   },
                 ),

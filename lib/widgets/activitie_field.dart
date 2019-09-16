@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sd_agenda/models/task_data.dart';
 
-
 class ActivitieField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var dataProvider = Provider.of<TaskData>(context);
     return Column(
       children: <Widget>[
         Text(
@@ -27,7 +27,7 @@ class ActivitieField extends StatelessWidget {
           ),
           style: TextStyle(fontSize: 15),
           onChanged: (newText) {
-            Provider.of<TaskData>(context).taskTitle = newText;
+            dataProvider.taskTitle = newText;
           },
         ),
         SizedBox(

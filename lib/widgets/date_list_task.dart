@@ -6,6 +6,7 @@ import 'package:sd_agenda/models/task_data.dart';
 class DateListTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var dataProvider = Provider.of<TaskData>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
@@ -29,23 +30,22 @@ class DateListTask extends StatelessWidget {
                   final date = await showDatePicker(
                     context: context,
                     firstDate: DateTime(1900),
-                    initialDate: Provider.of<TaskData>(context).selectedDate,
+                    initialDate: dataProvider.selectedDate,
                     lastDate: DateTime(2100),
                     selectableDayPredicate: (DateTime day) {
                       // print(day);
-                      return Provider.of<TaskData>(context)
-                          .verifyAppointmentInDay(day);
+                      return dataProvider.verifyAppointmentInDay(day);
                     },
                   );
 
                   if (date != null) {
-                    Provider.of<TaskData>(context).selectedDate = date;
+                    dataProvider.selectedDate = date;
                   }
                 },
                 child: Text(
                   '🔍 ' +
                       DateFormat("EEE, d 'de' MMM, yyyy", 'pt')
-                          .format(Provider.of<TaskData>(context).selectedDate),
+                          .format(dataProvider.selectedDate),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,

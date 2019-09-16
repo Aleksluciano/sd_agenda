@@ -28,10 +28,11 @@ class _TasksScreenState extends State<TasksScreen> {
     try {
       final user = await _auth.currentUser();
       if (user != null) {
+        var dataProvider = Provider.of<TaskData>(context);
         loggedInUser = user;
         print(loggedInUser.email);
-        Provider.of<TaskData>(context).fetchStreamData();
-        Provider.of<TaskData>(context).selectedDate = DateTime.now();
+        dataProvider.fetchStreamData();
+        dataProvider.selectedDate = DateTime.now();
       }
     } catch (e) {
       print(e);

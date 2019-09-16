@@ -4,19 +4,18 @@ import 'package:sd_agenda/models/task_data.dart';
 import 'package:sd_agenda/widgets/tasks_list.dart';
 
 class ListTasks extends StatelessWidget {
-
- 
   @override
   Widget build(BuildContext context) {
+    var dataProvider = Provider.of<TaskData>(context);
 
     return Expanded(
       child: GestureDetector(
         onPanUpdate: (details) {
           if (details.delta.dx < 0) {
-            Provider.of<TaskData>(context).nextDate();
+            dataProvider.nextDate();
           }
           if (details.delta.dx > 0) {
-            Provider.of<TaskData>(context).previousDate();
+            dataProvider.previousDate();
           }
         },
         child: Container(

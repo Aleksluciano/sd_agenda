@@ -8,6 +8,7 @@ class PeriodField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final format = DateFormat("EEEE, d 'de' MMM, yyyy 'às' H:mm", 'pt');
+    var dataProvider = Provider.of<TaskData>(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,20 +33,18 @@ class PeriodField extends StatelessWidget {
             final date = await showDatePicker(
               context: context,
               firstDate: DateTime(1900),
-              initialDate: Provider.of<TaskData>(context).selectedDate,
+              initialDate: dataProvider.selectedDate,
               lastDate: DateTime(2100),
             );
             if (date != null) {
               final time = await showTimePicker(
                 context: context,
-                initialTime:
-                    TimeOfDay.fromDateTime(Provider.of<TaskData>(context).selectedDate),
+                initialTime: TimeOfDay.fromDateTime(dataProvider.selectedDate),
               );
-              return Provider.of<TaskData>(context).dateTime =
-                  DateTimeField.combine(date, time);
+              return dataProvider.dateTime = DateTimeField.combine(date, time);
             } else {
               //newDateTime = currentValue;
-              return Provider.of<TaskData>(context).dateTime = currentValue;
+              return dataProvider.dateTime = currentValue;
             }
           },
         ),
